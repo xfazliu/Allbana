@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Optika-Albana</title>
+  
+
+<!-- Poppins font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F2F2F2;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Teksti */
+  .text-area h3 {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0 0 16px 0;
+  }
+
+  .text-area p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+    color: #111;
+  }
+
+  /* Link me ikonë */
+  .text-area a.more-link {
+    position: relative;
+    color: #000;
+    font-weight: 500;
+    font-size: 14.5px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 24px;
+    overflow: visible;
+    transition: color 0.3s ease;
+    width: fit-content;
+  }
+
+  .text-area a.more-link .icon {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .text-area a.more-link:hover {
+    color: #000;
+  }
+
+  .text-area a.more-link:hover .icon {
+    opacity: 1;
+  }
+
+  .text-area a.more-link .text {
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .text-area a.more-link:hover .text {
+    transform: translateX(6px);
+  }
+
+  /* Butoni custom */
+  .btn-custom {
+    position: relative;
+    max-width: 100%;
+    width: 223px;
+    min-height: 50px;
+    background-color: #009640;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  .btn-custom:hover {
+    background-color: #007d37;
+    color: white;
+  }
+
+  .icon {
+    opacity: 0;
+    position: absolute;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    transition: opacity 0.6s ease;
+  }
+
+  .btn-custom:hover .icon {
+    opacity: 1;
+  }
+
+  .icon img {
+    width: 25px;
+    height: 25px;
+    display: block;
+  }
+
+  .text {
+    transition: transform 0.6s ease;
+    white-space: nowrap;
+  }
+
+  .btn-custom:hover .text {
+    transform: translateX(18px);
+  }
+
+
+ 
+
+
+
+  .offcanvas-menu.active {
+    right: 0;
+  }
+
+  .menu-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .menu-header .navbar-brand img {
+    height: 50px;
+  }
+
+  .close-btn {
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .menu-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .menu-links li {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .menu-links a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: #000;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+  }
+
+  .btn.btn-custom {
+    margin-top: auto;
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 0;
+    border-radius: 8px;
+    background-color: #009640;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Stili për hamburger menu */
+.hamburger {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  z-index: 10001;
+}
+
+/* Offcanvas menu */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 10000;
+}
+
+.offcanvas-menu.active {
+  right: 0;
+}
+
+.menu-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.menu-header .navbar-brand img {
+  height: 45px;
+}
+
+.close-btn {
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Menu links */
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  width: 100%;
+}
+
+.menu-links li {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.menu-links a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Butoni "Rezervo Terminin" në fund të menysë mobile */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 50%; /* ❗ Menuja tani zë gjysmën e ekranit */
+  height: 100%;
+  background-color: #d9d9d9;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 10000;
+}
+
+.offcanvas-menu.active {
+  right: 2%; /* ❗ Pak më larg nga e djathta */
+}
+
+.offcanvas-menu .btn-custom:hover {
+  background-color: #007d37;
+}
+@media (max-width: 767.98px) {
+  .offcanvas-menu {
+    width: 50%;
+  }
+}
+/* Hamburger ikonë */
+.hamburger {
+  width: 28px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Transform to X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Offcanvas menu */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 60%;
+  height: 100vh;
+  background-color: #d9d9d9;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 10000;
+}
+
+.offcanvas-menu.active {
+  right: 0;
+}
+
+/* Header i menysë mobile */
+.menu-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.menu-header .navbar-brand img {
+  height: 45px;
+}
+
+.close-btn {
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-weight: 600;
+}
+
+/* Linkët në menu */
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.menu-links li {
+  margin-bottom: 30px;
+}
+
+.menu-links a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Butoni mobile */
+.offcanvas-menu .btn-custom {
+  width: 100%;
+  max-width: 260px;
+  font-size: 16px;
+  padding: 12px 0;
+  border-radius: 8px;
+  background-color: #009640;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+.offcanvas-menu .btn-custom:hover {
+  background-color: #007d37;
+}
+
+
+
+</style>
+
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+  <div class="container position-relative d-flex align-items-center justify-content-center">
+
+    <!-- Logo në qendër për mobile -->
+    <a class="navbar-brand mx-auto d-lg-none" href="#">
+      <img src="./Img/Asset 3.png" alt="Optika Albana Logo" height="40" />
+    </a>
+
+    <!-- Hamburger për mobile (djathtas, pak më majtas me CSS) -->
+    <button class="hamburger d-lg-none position-absolute end-0" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Logo për desktop -->
+    <a class="navbar-brand d-none d-lg-block" href="#">
+      <img src="./Img/Asset 3.png" alt="Optika Albana Logo" height="40" />
+    </a>
+
+    <!-- Menu desktop -->
+    <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarMenu">
+      <ul class="navbar-nav mb-2 mb-lg-0 gap-4">
+        <li class="nav-item"><a class="nav-link text-dark" href="Index.html">Ballina</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="rrethnesh.html">Rreth nesh</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="Test.html">Shërbimet</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="Ballina.html">Syzet dhe markat</a></li>
+      </ul>
+    </div>
+
+    <!-- Butoni desktop -->
+   <a href="tel:+38349344545" class="btn btn-custom d-none d-lg-flex ms-3">
+  <span class="icon"><img src="./Img/logot/icon1.png" alt="Glasses Icon" /></span>
+  <span class="text">Rezervo Terminin</span>
+</a>
+
+  </div>
+</nav>
+
+<!-- Offcanvas Menu për Mobile -->
+<div class="offcanvas-menu" id="mobileMenu">
+  <div class="menu-header">
+    <a class="navbar-brand" href="#">
+      <img src="./Img/Asset 3.png" alt="Optika Albana Logo" />
+    </a>
+  </div>
+
+  <ul class="menu-links">
+    <li><a href="Index.html">Ballina</a></li>
+    <li><a href="rrethnesh.html">Rreth nesh</a></li>
+    <li><a href="Test.html">Shërbimet</a></li>
+    <li><a href="Ballina.html">Syzet dhe markat</a></li>
+  </ul>
+
+ <button class="btn btn-custom" onclick="window.location.href='tel:+38349344545'">
+  Rezervo Terminin
+</button>
+
+</div>
+
+<!-- JS për toggle -->
+<script>
+  function toggleMenu(btn) {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+    btn.classList.toggle('open');
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- FOTO E BALLINËS -->
+<!-- Seksioni me video responsive që nuk përsëritet -->
+<section class="hero-video position-relative overflow-hidden w-100">
+  <div class="ratio ratio-16x9">
+    <video 
+      autoplay 
+      muted 
+      playsinline 
+      preload="auto" 
+      class="w-100 h-100" 
+      style="object-fit: cover;" 
+      onended="this.pause();">
+      <source src="./11.mp4" type="video/mp4" />
+      Browseri yt nuk e mbështet videon.
+    </video>
+  </div>
+</section>
+
+
+
+  <!-- Pjesa tjetër e faqes... -->
+
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+<section class="vizion-section container-fluid py-5" style="background-color: #f6f6f6;">
+  <div class="container d-flex flex-wrap align-items-center justify-content-between gap-4">
+
+    <!-- Teksti -->
+    <div class="content col-lg-5 col-md-12 text-content">
+      <h2 class="fw-bold">Vizioni ynë</h2>
+      <p>
+        Të jemi zgjedhja e parë për kujdesin e shikimit në rajon, duke ofruar standarde të larta profesionale,
+        teknologji të avancuar dhe produkte nga markat më të njohura botërore. Vizioni ynë është të përmirësojmë
+        cilësinë e jetës përmes një shikimi të shëndetshëm dhe të saktë për çdo individ.
+      </p>
+    </div>
+
+    <!-- Imazhet -->
+    <div class="images col-lg-6 col-md-12 position-relative image-content" style="min-height: 420px;">
+      <img src="./Img/IMG_2338.jpeg" alt="Foto 1" class="img-custom first-img" />
+      <img src="./Img/IMG_2312.jpeg" alt="Foto 2" class="img-custom second-img" />
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+.vizion-section {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.vizion-section .container {
+  max-width: 1200px; /* e ngushton përmbajtjen */
+  margin: 0 auto;
+}
+
+.vizion-section h2 {
+  font-weight: 700;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.vizion-section p {
+  font-size: 23px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.img-custom {
+  position: absolute;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* ✅ Foto e parë */
+.first-img {
+  width: 300px;
+  height: 400px;
+  left: 180px;
+  top: 0px;
+  transform: rotate(11.99deg);
+  box-shadow: 5px 12px 11.6px rgba(0, 0, 0, 0.58);
+  z-index: 2;
+}
+
+/* ✅ Foto e dytë */
+.second-img {
+  width: 310px;
+  height: 420px;
+  left: 320px;
+  top: 100px;
+  transform: rotate(-13.47deg);
+  box-shadow: 7px 8px 9.5px rgba(0, 0, 0, 0.31);
+  z-index: 1;
+}
+
+/* Responsive rregullime */
+@media (max-width: 991px) {
+  .images {
+    position: relative !important;
+    min-height: 400px !important;
+    width: 100%;
+  }
+
+  .first-img {
+    width: 200px !important;
+    height: 270px !important;
+    left: 50px !important;
+    top: 0 !important;
+    transform: rotate(11.99deg) !important;
+  }
+
+  .second-img {
+    width: 200px !important;
+    height: 280px !important;
+    left: 120px !important;
+    top: 100px !important;
+    transform: rotate(-13.47deg) !important;
+  }
+}
+
+
+
+
+
+
+/* Animacioni i shfaqjes */
+.text-content,
+.image-content {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+.text-content {
+  transform: translateX(-100px);
+}
+
+.image-content {
+  transform: translateX(100px);
+}
+
+.text-content.show,
+.image-content.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Fillimisht i fshehim të dy fotot me pozicion të ndryshëm */
+.first-img,
+.second-img {
+  opacity: 0;
+  transition: all 0.9s ease;
+}
+
+/* Foto e parë vjen nga lart */
+.first-img {
+  transform: translateY(-100px) rotate(11.99deg);
+}
+
+/* Foto e dytë vjen nga e djathta */
+.second-img {
+  transform: translateX(100px) rotate(-13.47deg);
+}
+
+/* Kur aktivizohet animacioni */
+.image-content.show .first-img,
+.image-content.show .second-img {
+  opacity: 1;
+}
+
+/* Foto e parë kthehet në pozicion normal */
+.image-content.show .first-img {
+  transform: translateY(0) rotate(11.99deg);
+}
+
+/* Foto e dytë kthehet në pozicion normal */
+.image-content.show .second-img {
+  transform: translateX(0) rotate(-13.47deg);
+}
+
+
+/* Fillimisht fshehim të dy fotot */
+.first-img,
+.second-img {
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+/* Foto e parë vjen prej krejt lart (jashtë seksionit) */
+.first-img {
+  transform: translateY(-200%) rotate(11.99deg);
+}
+
+/* Foto e dytë vjen nga e djathta */
+.second-img {
+  transform: translateX(150px) rotate(-13.47deg);
+}
+
+/* Kur të vijë animacioni */
+.image-content.show .first-img,
+.image-content.show .second-img {
+  opacity: 1;
+}
+
+/* Foto e parë shkon në vendin e vet */
+.image-content.show .first-img {
+  transform: translateY(0) rotate(11.99deg);
+}
+
+/* Foto e dytë shkon në vendin e vet */
+.image-content.show .second-img {
+  transform: translateX(0) rotate(-13.47deg);
+}
+@media (max-width: 991px) {
+  .vizion-section p {
+    font-size: 16px !important; /* zvogëlo tekstin për mobile/tablet */
+  }
+
+  .vizion-section h2 {
+    font-size: 22px !important; /* nëse dëshiron, mund ta zvogëlosh edhe titullin */
+  }
+}
+
+
+</style>
+
+
+<script>
+  const vizionSection = document.querySelector('.vizion-section');
+  const textContent = document.querySelector('.text-content');
+  const imageContent = document.querySelector('.image-content');
+  let alreadyAnimated = false;
+
+  vizionSection.addEventListener('mouseenter', () => {
+    if (!alreadyAnimated) {
+      textContent.classList.add('show');
+      imageContent.classList.add('show');
+      alreadyAnimated = true;
+    }
+  });
+</script>
+<p></p>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+<section class="mission-section container py-5" id="missionSection" style="background-color: #f6f6f6;">
+  <div class="row align-items-center justify-content-center g-4">
+
+    <!-- Imazhi -->
+    <div class="col-lg-5 col-md-8 d-flex justify-content-center">
+      <img src="./Img/IMG_2320.jpeg" alt="Misioni foto" class="img-tilted shadow rounded" id="missionImg" />
+    </div>
+
+    <!-- Teksti -->
+    <div class="col-lg-6 col-md-10">
+      <h2 class="fw-bold mb-4 animate-right" id="missionTitle">Misioni ynë</h2>
+      <p class="mission-text animate-right" id="missionText">
+        Në Optika Albana, misioni ynë është të ofrojmë shërbime të specializuara në kontrollin e syve, me pajisjet më të fundit të teknologjisë dhe bashkëpunim me markat më të njohura ndërkombëtare në fushën e optikës. Ne angazhohemi të ofrojmë një përvojë të besueshme, profesionale dhe të personalizuar për çdo klient, duke ndihmuar njerëzit të shohin më qartë dhe të jetojnë më mirë.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f6f6f6;
+}
+
+.img-tilted,
+.animate-right {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.img-tilted {
+  width: 300px;
+  height: 400px;
+  position: relative;
+  left: -40px; /* ruajmë pozicionin për desktop */
+  border-radius: 38px;
+
+  /* Hijet anash majtas-djathtas */
+  box-shadow: -20px 0 30px rgba(0, 0, 0, 0.705), 20px 0 30px rgba(0, 0, 0, 0.15);
+
+  object-fit: cover;
+  transform: translateY(-100px) rotate(11.99deg);
+  z-index: 2;
+}
+
+.animate-right {
+  transform: translateX(100px);
+}
+
+.img-tilted.show {
+  opacity: 1;
+  transform: translateY(0) rotate(11.99deg);
+}
+
+.animate-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mission-text {
+  font-size: 20px;
+  line-height: 1.9;
+  max-width: 700px;
+  color: #000;
+}
+
+.mission-section h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .img-tilted {
+    width: 240px;
+    height: 320px;
+    left: 0; /* largojmë left -40px për të qenë në qendër */
+    transform: translateY(0) rotate(11.99deg); /* ruajmë rotacionin, heqim translateY negative */
+    margin-top: 20px; /* vendosim pak hapësirë mbi foto */
+  }
+
+  .mission-text {
+    font-size: 18px;
+    max-width: 100%;
+    line-height: 1.8;
+  }
+
+  .mission-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* ... stilat ekzistues ... */
+
+  /* Rendisja e kolonave: teksti para imazhit */
+  #missionSection .col-lg-5 {  /* kolona e imazhit */
+    order: 2;  /* e vendosim si e dyta */
+    margin-top: 20px; /* pak hapësirë nga teksti */
+    left: 0 !important; /* për siguri largoj pozicionimin */
+    transform: translateY(0) rotate(11.99deg) !important; /* ruaj rotacionin */
+    width: 240px !important;
+    height: 320px !important;
+  }
+
+  #missionSection .col-lg-6 {  /* kolona e tekstit */
+    order: 1; /* e vendosim e para */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Zvogëlo madhësinë e titullit */
+  .mission-section h2 {
+    font-size: 24px; /* nga 32px në 24px */
+  }
+
+  /* Zvogëlo madhësinë e paragrafit */
+  .mission-text {
+    font-size: 16px; /* nga 20px në 16px */
+    line-height: 1.6; /* pak më kompak */
+  }
+}
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('missionSection');
+    const img = document.getElementById('missionImg');
+    const text = document.getElementById('missionText');
+    const title = document.getElementById('missionTitle');
+    let alreadyAnimated = false;
+
+    section.addEventListener('mouseenter', () => {
+      if (!alreadyAnimated) {
+        img.classList.add('show');
+        text.classList.add('show');
+        title.classList.add('show');
+        alreadyAnimated = true;
+      }
+    });
+  });
+</script>
+
+<p></p>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+<!-- Seksioni i statistikave -->
+<section id="statsSection" class="py-5" style="background-color: #f6f6f6;">
+  <div class="container">
+    <div class="row text-center justify-content-center">
+      
+      <!-- Statistika 1 -->
+      <div class="col-md-6 mb-4">
+        <h2 class="stat-number" data-target="10000">+0</h2>
+        <p class="stat-text">Më shumë se<br />10,000 klientë</p>
+      </div>
+      
+      <!-- Statistika 2 -->
+      <div class="col-md-6 mb-4">
+        <h2 class="stat-number" data-target="800">+0</h2>
+        <p class="stat-text">Më shumë se<br />800 lloje syzesh</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CSS për stilim -->
+<style>
+  body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.stat-number {
+  font-size: 60px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.stat-text {
+  font-size: 18px;
+  color: #111;
+  line-height: 1.5;
+}
+
+/* Ruajmë font-size për mobile */
+@media (max-width: 768px) {
+  .stat-number {
+    font-size: 48px;
+  }
+
+  .stat-text {
+    font-size: 16px;
+  }
+
+  /* Shtojmë që dy kolonat të qëndrojnë në një rresht me 50% gjerësi secila */
+  .row.text-center.justify-content-center {
+    display: flex;
+    flex-wrap: nowrap;  /* mos lejo thyerje rreshti */
+    justify-content: center;
+  }
+
+  .row.text-center.justify-content-center > div.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: center;
+  }
+}
+
+
+
+  
+</style>
+
+<!-- JavaScript për animacion -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const statSection = document.getElementById('statsSection');
+    const counters = document.querySelectorAll('.stat-number');
+    let hasAnimated = false;
+
+    function isInViewport(element) {
+      const rect = element.getBoundingClientRect();
+      return rect.top <= window.innerHeight && rect.bottom >= 0;
+    }
+
+    function animateCounters() {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const duration = 3000; // 3 seconds
+        const increment = Math.ceil(target / (duration / 16)); // rritje e përafërt për çdo frame
+
+        const updateCount = () => {
+          count += increment;
+          if (count < target) {
+            counter.textContent = `+${count}`;
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.textContent = `+${target.toLocaleString()}`;
+          }
+        };
+
+        updateCount();
+      });
+    }
+
+    function checkAnimation() {
+      if (!hasAnimated && isInViewport(statSection)) {
+        animateCounters();
+        hasAnimated = true;
+        window.removeEventListener('scroll', checkAnimation);
+      }
+    }
+
+    window.addEventListener('scroll', checkAnimation);
+    checkAnimation();
+  });
+</script>
+
+<section class="optika-section">
+  <div class="background-layer"></div>
+
+  <div class="content-wrapper">
+    <!-- Kolona majtas -->
+    <div class="left">
+      <img src="./Img/Asset 1.png" alt="Logo" class="logo" />
+
+      <h1 class="slogan">
+        Forcë që shikon me zemër <br> jo  vetëm me sy
+      </h1>
+
+      <div class="contact">
+        <div class="contact-item">
+          <img src="./Img/Vector.png" alt="Phone Icon" />
+          <span>+383 49 344 545</span>
+        </div>
+        <div class="contact-item">
+          <img src="./Img/line-md_email.png" alt="Email Icon" />
+          <span>optikaalbana@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <img src="./Img/tdesign_location.png" alt="Location Icon" />
+          <span>Rr.Tahir Sinani Lipjan</span>
+        </div>
+      </div>
+
+     <div class="social">
+        <a href="https://www.instagram.com/optikaalbana/"><img src="./Img/mdi_instagram.png" alt="Instagram" /></a>
+        <a href="https://www.facebook.com/OptikaAlbana"><img src="./Img/ri_facebook-fill.png" alt="Facebook" /></a>
+        <a href="https://www.tiktok.com/@optika.albana"><img src="./Img/Vector (2).png" alt="tiktok" /></a>
+     </div>
+    </div>
+
+    <!-- Kolona djathtas me menu dhe hartë -->
+    <div class="right">
+      <div class="menu">
+        <h3>MENU</h3>
+     <ul>
+          <li><a href="Index.html">Ballina</a></li>
+          <li><a href="rrethnesh.html">Rreth nesh</a></li>
+          <li><a href="Test.html">Shërbimet</a></li>
+          <li><a href="Ballina.html">Syzet dhe markat</a></li>
+        <li><a href="tel:+38349344545">Rezervo Terminin</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2851.187882174346!2d21.11743561567502!3d42.52237157917851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135483681ea6e815%3A0xfad07121ffca890d!2sOptika%20Albana!5e0!3m2!1sen!2s!4v1692460000000!5m2!1sen!2s"
+          width="384"
+          height="300"
+          style="border:0; border-radius:12px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Krijuar & dizajnuar nga Olti Gërxhliu | Programuar nga Xhezair Fazliu - 2025
+  </footer>
+</section>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .optika-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url('./Img/futer.png') center center/cover no-repeat;
+    z-index: -1;
+  }
+
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    padding: 60px 80px;
+    box-sizing: border-box;
+  }
+
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+  }
+
+  .right {
+    flex: 1.5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin-top: 250px;
+  }
+
+  .logo {
+    width: 185px;
+    margin-top: -100px;
+    margin-bottom: 40px;
+  }
+
+  .slogan {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    margin-bottom: 40px;
+    max-width: 350px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .contact-item img {
+    width: 24px;
+    margin-right: 12px;
+  }
+
+  .contact-item span {
+    font-size: 16px;
+  }
+
+  .social {
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+  }
+
+  .social img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .menu h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+  }
+
+  .menu li {
+    margin-bottom: 12px;
+  }
+
+  .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .map {
+    flex-shrink: 0;
+  }
+
+  .map iframe {
+    width: 100%;
+    max-width: 480px;
+    height: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .footer {
+    background: #D9D9D9;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  /* ====== MOBILE RREGULLIMET ====== */
+  @media (max-width: 1024px) {
+    .optika-section {
+      height: auto;
+      padding-bottom: 40px;
+    }
+
+    .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      height: auto;
+      gap: 40px;
+    }
+
+    .left {
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .right {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    .logo {
+      margin-top: 0;
+      width: 150px;
+    }
+
+    .slogan {
+      font-size: 24px;
+      line-height: 36px;
+      max-width: 90%;
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      justify-content: center;
+    }
+
+    .menu {
+      align-items: center;
+    }
+
+    .menu h3 {
+      font-size: 24px;
+    }
+
+    .menu a {
+      font-size: 18px;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 220px;
+    }
+
+   
+  }
+</style>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

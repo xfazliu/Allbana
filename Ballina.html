@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Optika-Albana</title>
+
+<!-- Poppins font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+  <div class="container position-relative d-flex align-items-center justify-content-center">
+
+    <!-- Logo në qendër për mobile -->
+    <a class="navbar-brand mx-auto d-lg-none" href="#">
+      <img src="./Img/Asset 3.png" alt="Optika Albana Logo" height="40" />
+    </a>
+
+    <!-- Hamburger për mobile (djathtas, pak më majtas me CSS) -->
+    <button class="hamburger d-lg-none position-absolute end-0" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Logo për desktop -->
+    <a class="navbar-brand d-none d-lg-block" href="#">
+      <img src="./Img/Asset 3.png" alt="Optika Albana Logo" height="40" />
+    </a>
+
+    <!-- Menu desktop -->
+    <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarMenu">
+      <ul class="navbar-nav mb-2 mb-lg-0 gap-4">
+        <li class="nav-item"><a class="nav-link text-dark" href="Index.html">Ballina</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="rrethnesh.html">Rreth nesh</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="Test.html">Shërbimet</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="Ballina.html">Syzet dhe markat</a></li>
+      </ul>
+    </div>
+
+    <!-- Butoni desktop -->
+   <a href="tel:+38349344545" class="btn btn-custom d-none d-lg-flex ms-3">
+  <span class="icon"><img src="./Img/logot/icon1.png" alt="Glasses Icon" /></span>
+  <span class="text">Rezervo Terminin</span>
+</a>
+
+  </div>
+</nav>
+
+<!-- Offcanvas Menu për Mobile -->
+<div class="offcanvas-menu" id="mobileMenu">
+  <div class="menu-header">
+    <a class="navbar-brand" href="#">
+      <img src="./Img/Asset 3.png" alt="Optika Albana Logo" />
+    </a>
+  </div>
+
+  <ul class="menu-links">
+    <li><a href="Index.html">Ballina</a></li>
+    <li><a href="rrethnesh.html">Rreth nesh</a></li>
+    <li><a href="Test.html">Shërbimet</a></li>
+    <li><a href="Ballina.html">Syzet dhe markat</a></li>
+  </ul>
+
+ <button class="btn btn-custom" onclick="window.location.href='tel:+38349344545'">
+  Rezervo Terminin
+</button>
+
+</div>
+
+<!-- JS për toggle -->
+<script>
+  function toggleMenu(btn) {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+    btn.classList.toggle('open');
+  }
+</script>
+
+
+  <section class="hero-section">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+   
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <style>
+     body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F2F2F2;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Teksti */
+  .text-area h3 {
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0 0 16px 0;
+  }
+
+  .text-area p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+    color: #111;
+  }
+
+  /* Link me ikonë */
+  .text-area a.more-link {
+    position: relative;
+    color: #000;
+    font-weight: 500;
+    font-size: 14.5px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 24px;
+    overflow: visible;
+    transition: color 0.3s ease;
+    width: fit-content;
+  }
+
+  .text-area a.more-link .icon {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .text-area a.more-link:hover {
+    color: #000;
+  }
+
+  .text-area a.more-link:hover .icon {
+    opacity: 1;
+  }
+
+  .text-area a.more-link .text {
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .text-area a.more-link:hover .text {
+    transform: translateX(6px);
+  }
+
+  /* Butoni custom */
+  .btn-custom {
+    position: relative;
+    max-width: 100%;
+    width: 223px;
+    min-height: 50px;
+    background-color: #009640;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: 400;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    cursor: pointer;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  .btn-custom:hover {
+    background-color: #007d37;
+    color: white;
+  }
+
+  .icon {
+    opacity: 0;
+    position: absolute;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    transition: opacity 0.6s ease;
+  }
+
+  .btn-custom:hover .icon {
+    opacity: 1;
+  }
+
+  .icon img {
+    width: 25px;
+    height: 25px;
+    display: block;
+  }
+
+  .text {
+    transition: transform 0.6s ease;
+    white-space: nowrap;
+  }
+
+  .btn-custom:hover .text {
+    transform: translateX(18px);
+  }
+
+
+ 
+
+
+
+  .offcanvas-menu.active {
+    right: 0;
+  }
+
+  .menu-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .menu-header .navbar-brand img {
+    height: 50px;
+  }
+
+  .close-btn {
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .menu-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .menu-links li {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .menu-links a {
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: #000;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+  }
+
+  .btn.btn-custom {
+    margin-top: auto;
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 0;
+    border-radius: 8px;
+    background-color: #009640;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Stili për hamburger menu */
+.hamburger {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  z-index: 10001;
+}
+
+/* Offcanvas menu */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 10000;
+}
+
+.offcanvas-menu.active {
+  right: 0;
+}
+
+.menu-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.menu-header .navbar-brand img {
+  height: 45px;
+}
+
+.close-btn {
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Menu links */
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  width: 100%;
+}
+
+.menu-links li {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.menu-links a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Butoni "Rezervo Terminin" në fund të menysë mobile */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 50%; /* ❗ Menuja tani zë gjysmën e ekranit */
+  height: 100%;
+  background-color: #d9d9d9;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 10000;
+}
+
+.offcanvas-menu.active {
+  right: 2%; /* ❗ Pak më larg nga e djathta */
+}
+
+.offcanvas-menu .btn-custom:hover {
+  background-color: #007d37;
+}
+@media (max-width: 767.98px) {
+  .offcanvas-menu {
+    width: 50%;
+  }
+}
+/* =============== HAMBURGER =============== */
+.hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px; /* Shtyer pak më majtas nga skaji i djathtë */
+  width: 28px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Transformo në X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* =============== OFFCANVAS MENU =============== */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 60%;
+  height: 100vh;
+  background-color: #d9d9d9;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: right 0.3s ease-in-out;
+  z-index: 10000;
+}
+
+.offcanvas-menu.active {
+  right: 0;
+}
+
+@media (max-width: 767.98px) {
+  .offcanvas-menu {
+    width: 80%;
+  }
+}
+
+/* Header i menysë mobile */
+.menu-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.menu-header .navbar-brand img {
+  height: 45px;
+}
+
+.close-btn {
+  font-size: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Linkët në menu */
+.menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.menu-links li {
+  margin-bottom: 30px;
+}
+
+.menu-links a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: #000;
+  font-weight: 500;
+}
+
+/* Butoni në fund */
+.offcanvas-menu .btn-custom {
+  width: 100%;
+  max-width: 260px;
+  font-size: 16px;
+  padding: 12px 0;
+  border-radius: 8px;
+  background-color: #009640;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+.offcanvas-menu .btn-custom:hover {
+  background-color: #007d37;
+}
+
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 1024px; /* lartësia fikse për desktop */
+  background-image: url('1.png');
+  background-size: cover; /* mbaj cover për desktop */
+  background-position: center;
+  display: flex;
+  align-items: center;
+  color: white;
+  transition: background-image 1s ease-in-out;
+  object-fit: cover;
+  padding: 0 30px; /* pak padding horizontal për desktop */
+  box-sizing: border-box;
+}
+
+/* Tablets dhe screens më të vogla se 768px */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 60vh; /* lartësi relative për tablet */
+    background-position: top center;
+    padding: 0 20px;
+  }
+}
+
+/* Për telefona (më të vegjël se 480px) */
+@media (max-width: 480px) {
+  .hero-section {
+    height: 50vh; /* ul lartësinë më tej */
+    background-position: center center;
+    padding: 15px 15px; /* padding më i madh për të mos u prerë përmbajtja */
+  }
+
+  .hero-title {
+    font-size: 22px; /* pak më i vogël për ekrane të vogla */
+    margin-bottom: 12px;
+  }
+
+  .hero-text {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .btn-hero {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+}
+
+/* Hero overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.34);
+  pointer-events: none; /* lejon klikimin e elementeve poshtë */
+}
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding: 0 15px;
+}
+
+/* Titulli */
+.hero-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Teksti */
+.hero-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+/* Butoni */
+.btn-hero {
+  background-color: #009640;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 16px;
+  color: white;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-hero:hover {
+  background-color: #007d37;
+  color: white;
+}
+
+/* Për screens më të vogla se 700px */
+@media (max-width: 700px) {
+  .hover-zone {
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px auto 40px auto;
+  }
+
+  .box {
+    width: 100%;
+    height: auto;
+    flex-direction: column !important;
+    transform: translateY(20px);
+  }
+
+  .box.show {
+    transform: translateY(0);
+  }
+
+  .text-area,
+  .img-container {
+    width: 100% !important;
+    height: auto;
+    border-radius: 0 !important;
+  }
+
+  .img-container {
+    height: 200px;
+  }
+}
+
+
+</style>
+
+<!-- ✅ JavaScript për ndërrimin automatik të fotografisë -->
+<script>
+  const heroSection = document.querySelector(".hero-section");
+
+  // Shtimi i foto e katërt
+  const images = [
+    "1.png",
+    "2.png",
+    "3.png",
+    "4.png"  // Foto e katërt
+  ];
+
+  let currentIndex = 0;
+
+  // Funksioni që ndërron foton çdo 3 sekonda
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length; // Ndërro në cikël
+    heroSection.style.backgroundImage = `url('${images[currentIndex]}')`; // Ndrysho imazhin
+  }, 3000); // Ndërrimi çdo 3 sekonda
+</script>
+
+
+
+
+
+
+
+<section class="animated-collection">
+  <div class="hover-zone" id="hoverZone">
+    <div class="box from-left" id="box1">
+      <div class="text-area">
+        <h3> CAT & O’Neill</h3>
+        <p>
+          Zbuloni koleksionin e syzeve nga CAT dhe O’Neill, dy marka që kombinojnë funksionalitetin me stilin aktiv. CAT ofron korniza të forta dhe të qëndrueshme për përdorim të përditshëm, ndërsa O’Neill sjell frymë sportive dhe dizajn modern për një pamje dinamike dhe komode.
+        </p>
+
+      </div>
+      <div class="img-container1">
+        <div></div>
+      </div>
+    </div>
+
+    <div class="box from-right" id="box2">
+      <div class="text-area">
+        <h3>Ray-Ban & Carrera</h3>
+        <p>
+         Eksploroni elegancën ikonike dhe energjinë sportive me Ray-Ban dhe Carrera. Ray-Ban prezanton modelet e famshme që nuk dalin kurrë nga moda, ndërsa Carrera ofron korniza të guximshme dhe plot stil për ata që duan të dallohen.
+        </p>
+       
+      </div>
+      <div class="img-container1">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // Kur vendoset mausi mbi hover-zone, shfaq kutitë vetëm herën e parë
+  const hoverZone = document.getElementById('hoverZone');
+  const box1 = document.getElementById('box1');
+  const box2 = document.getElementById('box2');
+  let alreadyShown = false;
+
+  hoverZone.addEventListener('mouseenter', () => {
+    if (!alreadyShown) {
+      box1.classList.add('show');
+      box2.classList.add('show');
+      alreadyShown = true;
+    }
+  });
+</script>
+
+<style>
+  
+    /* Kutitë dhe hover */
+    .hover-zone {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 1400px;
+      position: relative;
+      margin: 40px auto 80px auto;
+    }
+
+    .box {
+      width: 662px;
+      height: 508px;
+      background-color: #D9D9D9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      display: flex;
+      opacity: 0;
+      transform: translateX(0);
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+
+    .box.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .box.from-left {
+      flex-direction: row;
+      transform: translateX(-100px);
+    }
+
+    .box.from-right {
+      flex-direction: row-reverse;
+      transform: translateX(100px);
+    }
+
+    .box.show.from-left {
+      transform: translateX(0);
+    }
+
+    .box.show.from-right {
+      transform: translateX(0);
+    }
+
+    .text-area {
+      background-color: #D9D9D9;
+      padding: 55px 35px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #000;
+    }
+
+    .img-container1 {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .box.from-left .text-area {
+      width: 40%;
+      border-radius: 12px 0 0 12px;
+    }
+
+    .box.from-left .img-container1 {
+      width: 60%;
+    }
+
+    .box.from-right .text-area {
+      width: 50%;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .box.from-right .img-container1 {
+      width: 50%;
+    }
+
+    .box.from-left .img-container1 div {
+      border-radius: 0 12px 12px 0;
+    }
+
+    .box.from-right .img-container1 div {
+      border-radius: 12px 0 0 12px;
+    }
+
+    .img-container1 div {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .box:nth-child(1) .img-container1 div {
+      background-image: url('./Img/cat.jpg');
+    }
+
+    .box:nth-child(2) .img-container1 div {
+      background-image: url('./Img/rayban.jpg');
+    }
+
+
+    
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="animated-collection">
+  <div class="hover-zone" id="hoverZone">
+    <div class="box from-left" id="box1">
+      <div class="text-area">
+        <h3>CHLOE & BOSS</h3>
+        <p>
+          Zbuloni koleksionin elegant të syzeve optike nga CHLOE dhe BOSS, dy marka të njohura për dizajnin modern, cilësinë e lartë dhe stilin e rafinuar. Çdo palë syze është e vendosur me kujdes në ekspozitorin minimal dhe estetik, duke nxjerrë në pah karakteristikat unike të kornizave.
+        </p>
+     
+      </div>
+      <div class="img-container2">
+        <div>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="box from-right" id="box2">
+      <div class="text-area">
+        <h3>TOMMY HILFIGER & LACOSTE</h3>
+        <p>
+         Stili takon funksionalitetin në këtë koleksion ekskluziv syzesh nga dy brende të njohura ndërkombëtare: Tommy Hilfiger dhe Lacoste. Të dizajnuara për individët që vlerësojnë pamjen moderne dhe cilësinë premium, këto korniza sjellin një përzierje të përsosur mes estetikës urbane dhe rehatisë së përditshme.
+        </p>
+    
+      </div>
+      <div class="img-container2">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mund të shtosh seksione të tjera po ashtu, pa id -->
+
+<script>
+  // Kap të gjitha hover-zone në faqe
+  document.querySelectorAll('.hover-zone').forEach(hoverZone => {
+    let alreadyShown = false;
+    const box1 = hoverZone.querySelector('.from-left');
+    const box2 = hoverZone.querySelector('.from-right');
+
+    hoverZone.addEventListener('mouseenter', () => {
+      if (!alreadyShown) {
+        box1.classList.add('show');
+        box2.classList.add('show');
+        alreadyShown = true;
+      }
+    });
+  });
+</script>
+
+
+<style>
+  
+    /* Kutitë dhe hover */
+    .hover-zone {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 1400px;
+      position: relative;
+      margin: 40px auto 80px auto;
+    }
+
+    .box {
+      width: 662px;
+      height: 508px;
+      background-color: #D9D9D9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      display: flex;
+      opacity: 0;
+      transform: translateX(0);
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+
+    .box.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .box.from-left {
+      flex-direction: row;
+      transform: translateX(-100px);
+    }
+
+    .box.from-right {
+      flex-direction: row-reverse;
+      transform: translateX(100px);
+    }
+
+    .box.show.from-left {
+      transform: translateX(0);
+    }
+
+    .box.show.from-right {
+      transform: translateX(0);
+    }
+
+    .text-area {
+      background-color: #D9D9D9;
+      padding: 55px 35px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #000;
+    }
+
+    .img-container1 {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .box.from-left .text-area {
+      width: 40%;
+      border-radius: 12px 0 0 12px;
+    }
+
+    .box.from-left .img-container2 {
+      width: 60%;
+    }
+
+    .box.from-right .text-area {
+      width: 50%;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .box.from-right .img-container2 {
+      width: 50%;
+    }
+
+    .box.from-left .img-container2 div {
+      border-radius: 0 12px 12px 0;
+    }
+
+    .box.from-right .img-container2 div {
+      border-radius: 12px 0 0 12px;
+    }
+
+    .img-container2 div {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .box:nth-child(1) .img-container2 div {
+      background-image: url('./Img/chloe.jpg');
+    }
+
+    .box:nth-child(2) .img-container2 div {
+      background-image: url('./Img/Tommy.jpg');
+    }
+</style>
+
+
+
+
+
+
+
+
+
+<section class="animated-collection">
+  <div class="hover-zone" id="hoverZone">
+    <div class="box from-left" id="box1">
+      <div class="text-area">
+        <h3>Versace & Tom Ford</h3>
+        <p>
+Shijoni luksin dhe minimalizmin modern me Versace dhe Tom Ford. Versace sjell detaje të rafinuara dhe elegancë të përjetshme, ndërsa Tom Ford ofron dizajne të pastra me një prekje glamuri për pamje ekskluzive.
+        </p>
+   
+      </div>
+      <div class="img-container3">
+        <div></div>
+      </div>
+    </div>
+
+    <div class="box from-right" id="box2">
+      <div class="text-area">
+        <h3>Burberry & Saint Laurent</h3>
+        <p>
+        Bashkimi i traditës britanike dhe sharmit urban vjen me Burberry dhe Saint Laurent. Burberry ofron stil klasik dhe korniza elegante, ndërsa Saint Laurent sjell dizajn modern dhe linja të holla për një pamje të sofistikuar
+        </p>
+
+      </div>
+      <div class="img-container3">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mund të shtosh seksione të tjera po ashtu, pa id -->
+
+<script>
+  // Kap të gjitha hover-zone në faqe
+  document.querySelectorAll('.hover-zone').forEach(hoverZone => {
+    let alreadyShown = false;
+    const box1 = hoverZone.querySelector('.from-left');
+    const box2 = hoverZone.querySelector('.from-right');
+
+    hoverZone.addEventListener('mouseenter', () => {
+      if (!alreadyShown) {
+        box1.classList.add('show');
+        box2.classList.add('show');
+        alreadyShown = true;
+      }
+    });
+  });
+</script>
+
+
+
+
+
+<style>
+  
+    /* Kutitë dhe hover */
+    .hover-zone {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 1400px;
+      position: relative;
+      margin: 40px auto 80px auto;
+    }
+
+    .box {
+      width: 662px;
+      height: 508px;
+      background-color: #D9D9D9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      display: flex;
+      opacity: 0;
+      transform: translateX(0);
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+
+    .box.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .box.from-left {
+      flex-direction: row;
+      transform: translateX(-100px);
+    }
+
+    .box.from-right {
+      flex-direction: row-reverse;
+      transform: translateX(100px);
+    }
+
+    .box.show.from-left {
+      transform: translateX(0);
+    }
+
+    .box.show.from-right {
+      transform: translateX(0);
+    }
+
+    .text-area {
+      background-color: #D9D9D9;
+      padding: 55px 35px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #000;
+    }
+
+    .img-container3 {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .box.from-left .text-area {
+      width: 40%;
+      border-radius: 12px 0 0 12px;
+    }
+
+    .box.from-left .img-container3 {
+      width: 60%;
+    }
+
+    .box.from-right .text-area {
+      width: 50%;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .box.from-right .img-container3 {
+      width: 50%;
+    }
+
+    .box.from-left .img-container3 div {
+      border-radius: 0 12px 12px 0;
+    }
+
+    .box.from-right .img-container3 div {
+      border-radius: 12px 0 0 12px;
+    }
+
+    .img-container3 div {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .box:nth-child(1) .img-container3 div {
+      background-image: url('./Screenshot\ 2025-08-26\ 141237.png');
+    }
+
+    .box:nth-child(2) .img-container3 div {
+      background-image: url('./Img/bubery.jpg');
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="animated-collection">
+  <div class="hover-zone" id="hoverZone">
+    <div class="box from-left" id="box1">
+      <div class="text-area">
+        <h3>Frozen & Star Wars</h3>
+        <p>
+          Zbuloni koleksionin magjik të syzeve nga Frozen dhe Star Wars, të krijuara për të sjellë gëzim dhe imagjinatë në botën e të vegjëlve. Frozen sjell dizajne të ndritshme dhe ngjyra të gjalla që pasqyrojnë botën e princeshave dhe aventurave magjike, ndërsa Star Wars ofron modele me tematikë galaktike për fansat e çdo moshe.
+        </p>
+        
+      </div>
+      <div class="img-container4">
+        <div></div>
+      </div>
+    </div>
+
+    <div class="box from-right" id="box2">
+      <div class="text-area">
+        <h3>Polo & Guess</h3>
+        <p>
+        
+Eksploroni elegancën klasike dhe stilin modern me Polo dhe Guess. Polo sjell korniza të rafinuara dhe të thjeshta për një pamje të përhershme dhe të sofistikuar, ndërsa Guess ofron dizajne trendi me detaje të veçanta që kombinojnë modën me funksionalitetin
+        </p>
+     
+      </div>
+      <div class="img-container4">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mund të shtosh seksione të tjera po ashtu, pa id -->
+
+<script>
+  // Kap të gjitha hover-zone në faqe
+  document.querySelectorAll('.hover-zone').forEach(hoverZone => {
+    let alreadyShown = false;
+    const box1 = hoverZone.querySelector('.from-left');
+    const box2 = hoverZone.querySelector('.from-right');
+
+    hoverZone.addEventListener('mouseenter', () => {
+      if (!alreadyShown) {
+        box1.classList.add('show');
+        box2.classList.add('show');
+        alreadyShown = true;
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+<style>
+  
+    /* Kutitë dhe hover */
+    .hover-zone {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 1400px;
+      position: relative;
+      margin: 40px auto 80px auto;
+    }
+
+    .box {
+      width: 662px;
+      height: 508px;
+      background-color: #D9D9D9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      display: flex;
+      opacity: 0;
+      transform: translateX(0);
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+
+    .box.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .box.from-left {
+      flex-direction: row;
+      transform: translateX(-100px);
+    }
+
+    .box.from-right {
+      flex-direction: row-reverse;
+      transform: translateX(100px);
+    }
+
+    .box.show.from-left {
+      transform: translateX(0);
+    }
+
+    .box.show.from-right {
+      transform: translateX(0);
+    }
+
+    .text-area {
+      background-color: #D9D9D9;
+      padding: 55px 35px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #000;
+    }
+
+    .img-container4 {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .box.from-left .text-area {
+      width: 40%;
+      border-radius: 12px 0 0 12px;
+    }
+
+    .box.from-left .img-container4 {
+      width: 60%;
+    }
+
+    .box.from-right .text-area {
+      width: 50%;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .box.from-right .img-container4 {
+      width: 50%;
+    }
+
+    .box.from-left .img-container4 div {
+      border-radius: 0 12px 12px 0;
+    }
+
+    .box.from-right .img-container4 div {
+      border-radius: 12px 0 0 12px;
+    }
+
+    .img-container4 div {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .box:nth-child(1) .img-container4 div {
+      background-image: url('./Img/Froz.jpg');
+    }
+
+    .box:nth-child(2) .img-container4 div {
+      background-image: url('./Img/polo.jpg');
+    }
+    
+
+
+    @media (max-width: 768px) {
+  .hover-zone {
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 15px; /* Pak hapësirë anash */
+  }
+
+  .box {
+    flex-direction: column !important;
+    width: 95%; /* Zvogëlohet pak nga 100% */
+    height: auto;
+    margin: 0 auto; /* Qendrohet */
+  }
+
+  .text-area,
+  .img-container1,
+  .img-container2,
+  .img-container3,
+  .img-container4 {
+    width: 100% !important;
+    min-width: 100%;
+  }
+
+  .text-area {
+    border-radius: 0 0 12px 12px !important;
+    padding: 25px 20px;
+  }
+
+  .img-container1,
+  .img-container2,
+  .img-container3,
+  .img-container4 {
+    aspect-ratio: 4 / 3;
+    height: auto;
+    border-radius: 12px 12px 0 0 !important;
+  }
+
+  .img-container1 div,
+  .img-container2 div,
+  .img-container3 div,
+  .img-container4 div {
+    height: 100%;
+    border-radius: 12px 12px 0 0 !important;
+  }
+}
+
+</style>
+
+
+
+
+<section class="optika-section">
+  <div class="background-layer"></div>
+
+  <div class="content-wrapper">
+    <!-- Kolona majtas -->
+    <div class="left">
+      <img src="./Img/Asset 1.png" alt="Logo" class="logo" />
+
+      <h2 class="slogan">
+        Forcë që shikon me zemër<br>jo vetëm me sy
+      </h2>
+
+      <div class="contact">
+        <div class="contact-item">
+          <img src="./Img/Vector.png" alt="Phone Icon" />
+          <span>+383 49 344 545</span>
+        </div>
+        <div class="contact-item">
+          <img src="./Img/line-md_email.png" alt="Email Icon" />
+          <span>optikaalbana@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <img src="./Img/tdesign_location.png" alt="Location Icon" />
+          <span>Rr.Tahir Sinani Lipjan</span>
+        </div>
+      </div>
+
+        <div class="social">
+        <a href="https://www.instagram.com/optikaalbana/"><img src="./Img/mdi_instagram.png" alt="Instagram" /></a>
+        <a href="https://www.facebook.com/OptikaAlbana"><img src="./Img/ri_facebook-fill.png" alt="Facebook" /></a>
+        <a href="https://www.tiktok.com/@optika.albana"><img src="./Img/Vector (2).png" alt="tiktok" /></a>
+        </div>
+    </div>
+
+    <!-- Kolona djathtas me menu dhe hartë -->
+    <div class="right">
+      <div class="menu">
+        <h3>MENU</h3>
+        <ul>
+          <li><a href="Index.html">Ballina</a></li>
+          <li><a href="rrethnesh.html">Rreth nesh</a></li>
+          <li><a href="Test.html">Shërbimet</a></li>
+          <li><a href="Ballina.html">Syzet dhe markat</a></li>
+        <li><a href="tel:+38349344545">Rezervo Terminin</a></li>
+          
+        </ul>
+      </div>
+
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2851.187882174346!2d21.11743561567502!3d42.52237157917851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135483681ea6e815%3A0xfad07121ffca890d!2sOptika%20Albana!5e0!3m2!1sen!2s!4v1692460000000!5m2!1sen!2s"
+          width="384"
+          height="300"
+          style="border:0; border-radius:12px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Krijuar & dizajnuar nga Olti Gërxhliu | Programuar nga Xhezair Fazliu - 2025
+  </footer>
+</section>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .optika-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url('./Img/futer.png') center center/cover no-repeat;
+    z-index: -1;
+  }
+
+  .content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+    padding: 60px 80px;
+    box-sizing: border-box;
+  }
+
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+  }
+
+  .right {
+    flex: 1.5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin-top: 250px;
+  }
+
+  .logo {
+    width: 185px;
+    margin-top: -100px;
+    margin-bottom: 40px;
+  }
+
+  .slogan {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    margin-bottom: 40px;
+    max-width: 350px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+
+  .contact-item img {
+    width: 24px;
+    margin-right: 12px;
+  }
+
+  .contact-item span {
+    font-size: 16px;
+  }
+
+  .social {
+    margin-top: 30px;
+    display: flex;
+    gap: 30px;
+  }
+
+  .social img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .menu h3 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+  }
+
+  .menu li {
+    margin-bottom: 12px;
+  }
+
+  .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .map {
+    flex-shrink: 0;
+  }
+
+  .map iframe {
+    width: 100%;
+    max-width: 480px;
+    height: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .footer {
+    background: #D9D9D9;
+    color: black;
+    text-align: center;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  /* ====== MOBILE RREGULLIMET ====== */
+  @media (max-width: 1024px) {
+    .optika-section {
+      height: auto;
+      padding-bottom: 40px;
+    }
+
+    .content-wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      height: auto;
+      gap: 40px;
+    }
+
+    .left {
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .right {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      margin-top: 0;
+    }
+
+    .logo {
+      margin-top: 0;
+      width: 150px;
+    }
+
+    .slogan {
+      font-size: 24px;
+      line-height: 36px;
+      max-width: 90%;
+      margin-bottom: 30px;
+    }
+
+    .contact-item {
+      justify-content: center;
+    }
+
+    .menu {
+      align-items: center;
+    }
+
+    .menu h3 {
+      font-size: 24px;
+    }
+
+    .menu a {
+      font-size: 18px;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 220px;
+    }
+
+    
+  }
+</style>
+
+
+
+
+</body>
